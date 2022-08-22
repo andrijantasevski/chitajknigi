@@ -1,6 +1,10 @@
 <script>
 	import '../app.css';
+	import MetaTags from '../lib/MetaTags.svelte';
+	import Favicon from '../lib/Favicon.svelte';
+	import Header from '../lib/Header.svelte';
 </script>
 
-<h1 class="text-6xl">Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<MetaTags />
+<Favicon />
+<Header />
