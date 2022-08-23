@@ -20,14 +20,22 @@
 	const submitHandler = (boolean) => {
 		isFormValid = boolean;
 
-		if (fields.bookTitle === '') {
+		const bookTitleRegEx = new RegExp(
+			'^[A-aa-z0-9-.АаБбВвГгДдЃѓЕеЖжЗзЅѕИиЈјКкЛлЉљМмНнЊњОоПпРрСсТтЌќУуФфХхЦцЧчЏџШшs]*$'
+		);
+
+		const bookAuthorRegEx = new RegExp(
+			'^[A-aa-z-.АаБбВвГгДдЃѓЕеЖжЗзЅѕИиЈјКкЛлЉљМмНнЊњОоПпРрСсТтЌќУуФфХхЦцЧчЏџШшs]*$'
+		);
+
+		if (fields.bookTitle === '' || !bookTitleRegEx.test(fields.bookTitle)) {
 			isFormValid = false;
 			errors.bookTitle = 'Внесете име на книгата.';
 		} else {
 			errors.bookTitle = '';
 		}
 
-		if (fields.bookAuthor === '') {
+		if (fields.bookAuthor === '' || !bookAuthorRegEx.test(fields.bookAuthor)) {
 			isFormValid = false;
 			errors.bookAuthor = 'Внесете автор на книгата.';
 		} else {
