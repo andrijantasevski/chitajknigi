@@ -1,4 +1,12 @@
 <script>
+	import addBook from './utils/addBook';
+	import resetForm from './utils/resetForm';
+	import { bookDuplicateStore } from './utils/booksStore';
+
+	let bookDuplicateError;
+
+	bookDuplicateStore.subscribe((data) => (bookDuplicateError = data));
+
 	let fields = { bookTitle: '', bookAuthor: '', bookPages: '', bookPagesRead: '' };
 	let errors = {
 		bookTitle: '',
@@ -7,18 +15,9 @@
 		bookPagesRead: '',
 		bookPagesReadLimit: ''
 	};
-	let isFormValid = false;
-
-	const resetForm = () => {
-		const form = document.querySelector('form');
-		form.reset();
-
-		const defaultFields = { bookTitle: '', bookAuthor: '', bookPages: '', bookPagesRead: '' };
-		Object.assign(fields, defaultFields);
-	};
 
 	const submitHandler = (boolean) => {
-		isFormValid = boolean;
+		let isFormValid = boolean;
 
 		const bookTitleRegEx = new RegExp(
 			'^[A-aa-z0-9-.АаБбВвГгДдЃѓЕеЖжЗзЅѕИиЈјКкЛлЉљМмНнЊњОоПпРрСсТтЌќУуФфХхЦцЧчЏџШшs]*$'
@@ -68,7 +67,8 @@
 		}
 
 		if (isFormValid) {
-			resetForm();
+			addBook(fields.bookTitle, fields.bookAuthor, fields.bookPages, fields.bookPagesRead);
+			resetForm(fields);
 		}
 	};
 </script>
