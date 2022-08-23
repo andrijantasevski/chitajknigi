@@ -2,6 +2,7 @@
 	import addBook from './utils/addBook';
 	import resetForm from './utils/resetForm';
 	import { bookDuplicateStore } from './utils/booksStore';
+	import BookDuplicateModal from './BookDuplicateModal.svelte';
 
 	let bookDuplicateError;
 
@@ -68,6 +69,7 @@
 
 		if (isFormValid) {
 			addBook(fields.bookTitle, fields.bookAuthor, fields.bookPages, fields.bookPagesRead);
+			console.log(bookDuplicateError);
 			resetForm(fields);
 		}
 	};
@@ -154,3 +156,7 @@
 		</div>
 	</form>
 </section>
+
+{#if bookDuplicateError}
+	<BookDuplicateModal />
+{/if}
