@@ -1,12 +1,16 @@
 <script>
 	import addBook from './utils/addBook';
 	import resetForm from './utils/resetForm';
-	import { bookDuplicateStore } from './utils/booksStore';
+	import removeHandler from './utils/removeBooks';
+	import { booksStore, bookDuplicateStore } from './utils/booksStore';
 	import BookDuplicateModal from './BookDuplicateModal.svelte';
 
+	let booksData;
 	let bookDuplicateError;
 
 	bookDuplicateStore.subscribe((data) => (bookDuplicateError = data));
+
+	booksStore.subscribe((data) => (booksData = data));
 
 	let fields = { bookTitle: '', bookAuthor: '', bookPages: '', bookPagesRead: '' };
 	let errors = {
@@ -69,7 +73,6 @@
 
 		if (isFormValid) {
 			addBook(fields.bookTitle, fields.bookAuthor, fields.bookPages, fields.bookPagesRead);
-			console.log(bookDuplicateError);
 			resetForm(fields);
 		}
 	};
@@ -77,7 +80,7 @@
 
 <section class="w-11/12 mx-auto bg-base-300 mb-10 p-6 lg:p-8 rounded-xl">
 	<h2 class="text-2xl mb-6">Додади книга</h2>
-	<form on:submit|preventDefault={() => submitHandler(true)}>
+	<form>
 		<div class="mb-6 grid grid-cols-1 md:grid-cols-2 gap-6">
 			<div class="form-control">
 				<input
@@ -143,12 +146,19 @@
 		</div>
 
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-			<button class="btn btn-primary w-full" id="button-submit" type="submit">
+			<button
+				class="btn btn-primary w-full"
+				type="submit"
+				on:click|preventDefault={() => submitHandler(true)}
+			>
 				<img src="/media/icons/book-white.svg" alt="Book Icon" class="mr-2" /><span
 					>Додади книга</span
 				>
 			</button>
-			<button class="btn btn-disabled w-full" id="button-remove">
+			<button
+				class={booksData.length >= 1 ? 'btn btn-secondary w-full' : 'btn btn-disabled w-full'}
+				on:click|preventDefault={removeHandler}
+			>
 				<img src="/media/icons/trash-white.svg" alt="Trash Icon" class="mr-2" /><span
 					>Избриши ги сите книги</span
 				>

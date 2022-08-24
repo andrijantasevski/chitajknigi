@@ -5,9 +5,9 @@ let booksArray;
 booksStore.subscribe(data => booksArray = data);
 
 class Book {
-    constructor(_title, _author, _bookPages, _bookPagesRead, booksArray) {
-        this.title = _title;
-        this.author = _author;
+    constructor(_bookTitle, _bookAuthor, _bookPages, _bookPagesRead, booksArray) {
+        this.bookTitle = _bookTitle;
+        this.bookAuthor = _bookAuthor;
         this.bookPages = _bookPages;
         this.bookPagesRead = _bookPagesRead;
         this.bookID = booksArray.length + 1;
