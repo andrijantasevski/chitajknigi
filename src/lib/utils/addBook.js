@@ -1,4 +1,4 @@
-import { booksStore, bookDuplicateStore } from "./booksStore.js"
+import { booksStore, bookDuplicateStore, booksRead } from "./booksStore.js"
 
 let booksArray;
 
@@ -23,5 +23,7 @@ export default function addBook(bookTitle, bookAuthor, bookPages, bookPagesRead)
         return bookDuplicateStore.update(data => data = "Книгата е веќе внесена.")
     } else {
         booksStore.update(data => [...data, newBook]);
+        let bookPagesRead = booksArray.filter(book => book.bookPages === book.bookPagesRead);
+        booksRead.update(data => data = [...bookPagesRead]);
     }
 }

@@ -1,9 +1,9 @@
 <script>
 	import addBook from './utils/addBook';
 	import resetForm from './utils/resetForm';
-	import removeHandler from './utils/removeBooks';
 	import { booksStore, bookDuplicateStore } from './utils/booksStore';
 	import BookDuplicateModal from './BookDuplicateModal.svelte';
+	import RemoveAllBooksModal from './RemoveAllBooksModal.svelte';
 
 	let booksData;
 	let bookDuplicateError;
@@ -155,14 +155,14 @@
 					>Додади книга</span
 				>
 			</button>
-			<button
+			<label
 				class={booksData.length >= 1 ? 'btn btn-secondary w-full' : 'btn btn-disabled w-full'}
-				on:click|preventDefault={removeHandler}
+				for="modal-remove"
 			>
 				<img src="/media/icons/trash-white.svg" alt="Trash Icon" class="mr-2" /><span
 					>Избриши ги сите книги</span
 				>
-			</button>
+			</label>
 		</div>
 	</form>
 </section>
@@ -170,3 +170,5 @@
 {#if bookDuplicateError}
 	<BookDuplicateModal />
 {/if}
+
+<RemoveAllBooksModal />
