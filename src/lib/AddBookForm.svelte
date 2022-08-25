@@ -25,11 +25,11 @@
 		let isFormValid = boolean;
 
 		const bookTitleRegEx = new RegExp(
-			'^[A-aa-z0-9-.АаБбВвГгДдЃѓЕеЖжЗзЅѕИиЈјКкЛлЉљМмНнЊњОоПпРрСсТтЌќУуФфХхЦцЧчЏџШшs]*$'
+			/^[A-aa-z0-9-.АаБбВвГгДдЃѓЕеЖжЗзЅѕИиЈјКкЛлЉљМмНнЊњОоПпРрСсТтЌќУуФфХхЦцЧчЏџШш\s]*$/
 		);
 
 		const bookAuthorRegEx = new RegExp(
-			'^[A-aa-z-.АаБбВвГгДдЃѓЕеЖжЗзЅѕИиЈјКкЛлЉљМмНнЊњОоПпРрСсТтЌќУуФфХхЦцЧчЏџШшs]*$'
+			/^[A-aa-z-.АаБбВвГгДдЃѓЕеЖжЗзЅѕИиЈјКкЛлЉљМмНнЊњОоПпРрСсТтЌќУуФфХхЦцЧчЏџШш\s]*$/gm
 		);
 
 		if (fields.bookTitle === '' || !bookTitleRegEx.test(fields.bookTitle)) {
