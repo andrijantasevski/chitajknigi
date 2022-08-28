@@ -10,7 +10,7 @@
 	booksRead.subscribe((data) => (booksReadData = data));
 </script>
 
-<section class="w-11/12 mx-auto bg-base-300 p-6 lg:p-8 mb-10 rounded-xl">
+<section class="w-11/12 mx-auto bg-base-300 p-6 lg:p-8 mb-6 rounded-xl">
 	<h2 class={booksData.length === 0 ? 'text-2xl mb-0' : 'text-2xl mb-6'}>Прочитани книги</h2>
 
 	{#if booksData.length === 0 || booksReadData.length === 0}

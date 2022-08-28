@@ -5,6 +5,7 @@
 	import Header from '../lib/Header.svelte';
 	import AddBookForm from '../lib/AddBookForm.svelte';
 	import ReadBooksSection from '../lib/ReadBooksSection.svelte';
+	import TableBooks from '../lib/TableBooks.svelte';
 </script>
 
 <MetaTags />
@@ -13,4 +14,5 @@
 <main>
 	<AddBookForm />
 	<ReadBooksSection />
+	<TableBooks />
 </main>

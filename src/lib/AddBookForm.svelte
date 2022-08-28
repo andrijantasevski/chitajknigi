@@ -152,7 +152,7 @@
 				on:click|preventDefault={() => submitHandler(true)}
 			>
 				<img src="/media/icons/book-white.svg" alt="Book Icon" class="mr-2" /><span
-					>Додади книга</span
+					>Додадете книга</span
 				>
 			</button>
 			<label
@@ -160,7 +160,7 @@
 				for="modal-remove"
 			>
 				<img src="/media/icons/trash-white.svg" alt="Trash Icon" class="mr-2" /><span
-					>Избриши ги сите книги</span
+					>Избришете ги сите книги</span
 				>
 			</label>
 		</div>
