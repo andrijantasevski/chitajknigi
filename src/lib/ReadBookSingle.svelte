@@ -1,5 +1,7 @@
 <script>
-	export let bookTitle, bookAuthor;
+	export let bookTitle, bookAuthor, bookID;
+
+	import removeBook from './utils/removeBook';
 </script>
 
 <div class="bg-base-100 p-4 mb-6 rounded-xl flex items-center md:justify-between gap-x-4 last:mb-0">
@@ -11,7 +13,7 @@
 		</p>
 	</div>
 
-	<button class="btn btn-sm btn-secondary"
+	<button on:click={() => removeBook(bookID)} class="btn btn-sm btn-secondary"
 		><img src="/media/icons/trash-white.svg" alt="Избриши ја книгата" /></button
 	>
 </div>

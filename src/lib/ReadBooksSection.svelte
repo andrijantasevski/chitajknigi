@@ -28,7 +28,11 @@
 	{:else}
 		{#each booksData as book, i (book)}
 			{#if +book.bookPages === +book.bookPagesRead}
-				<ReadBookSingle bookTitle={book.bookTitle} bookAuthor={book.bookAuthor} />
+				<ReadBookSingle
+					bookTitle={book.bookTitle}
+					bookAuthor={book.bookAuthor}
+					bookID={book.bookID}
+				/>
 			{/if}
 		{/each}
 	{/if}
