@@ -50,6 +50,7 @@
 						bookPages={book.bookPages}
 						bookPagesRead={book.bookPagesRead}
 						bookID={book.bookID}
+						bookObject={book}
 					/>
 				{/each}
 			{/if}
