@@ -4,7 +4,7 @@
 	import removeBook from './utils/removeBook';
 </script>
 
-<div class="bg-base-100 p-4 mb-6 rounded-xl flex items-center md:justify-between gap-x-4 last:mb-0">
+<div class="bg-base-100 p-4 mb-6 rounded-xl flex items-center justify-between gap-x-4 last:mb-0">
 	<div class="flex items-center gap-x-4">
 		<input type="checkbox" class="checkbox checkbox-primary" checked="true" />
 		<p>

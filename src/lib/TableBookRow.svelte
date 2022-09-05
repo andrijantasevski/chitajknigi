@@ -1,6 +1,7 @@
 <script>
-	export let bookTitle, bookAuthor, bookPages, bookPagesRead, bookID;
+	export let bookTitle, bookAuthor, bookPages, bookPagesRead, bookID, bookObject;
 	import removeBook from './utils/removeBook';
+	import UpdateBookModal from './UpdateBookModal.svelte';
 </script>
 
 <tr>
@@ -25,8 +26,8 @@
 		/></td
 	>
 	<td class="bg-base-300"
-		><button class="btn btn-sm btn-primary text-center"
-			><img src="/media/icons/pencil-white.svg" alt="Избриши ја книгата" /></button
+		><label for={bookID} class="btn btn-sm btn-primary text-center"
+			><img src="/media/icons/pencil-white.svg" alt="Избриши ја книгата" /></label
 		></td
 	>
 	<td class="bg-base-300"
@@ -35,3 +36,5 @@
 		></td
 	>
 </tr>
+
+<UpdateBookModal {bookTitle} {bookAuthor} {bookPages} {bookPagesRead} {bookID} {bookObject} />

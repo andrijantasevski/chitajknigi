@@ -10,7 +10,7 @@ class Book {
         this.bookAuthor = _bookAuthor;
         this.bookPages = _bookPages;
         this.bookPagesRead = _bookPagesRead;
-        this.bookID = booksArray.length + 1;
+        this.bookID = new Date().valueOf();
     }
 }
 
