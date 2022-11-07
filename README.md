@@ -11,4 +11,4 @@
 
 #### Deployed on Netlify
 
-[_Go to website_](https://chitajknigi.andrijan.xyz/)
+[_Go to website_](https://chitajknigi.andrijan.dev/)
